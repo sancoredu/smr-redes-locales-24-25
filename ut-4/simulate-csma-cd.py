@@ -150,16 +150,21 @@ def main():
         workstation.msg_discarded_count for workstation in workstations
     )
 
-    print(f"Total messages requested: {msg_requested_count:_}")
-    print(f"Total messages sent: {msg_sent_count:_}")
+    print(f"Stats")
+    print(f"=====")
+    print(f"* Number of workstations: {workstation_count}")
+    print(f"* Maximum number of attempts: {attempt_max_count}")
+
+    print(f"* Total messages requested: {msg_requested_count:_}")
+    print(f"  * Sent: {msg_sent_count:_}")
     print(
-        f" * Collided: {msg_sent_collided_count:_} ({msg_sent_collided_count / msg_sent_count * 100:.2f}%) in {medium.collision_count:_.0f} collisions"
+        f"    * Collided: {msg_sent_collided_count:_} ({msg_sent_collided_count / msg_sent_count * 100:.2f}%) in {medium.collision_count:_.0f} collisions"
     )
     print(
-        f"Successful: {msg_sent_success_count:_} ({msg_sent_success_count / msg_requested_count * 100:.2f}%)"
+        f"  * Successfully delivered: {msg_sent_success_count:_} ({msg_sent_success_count / msg_requested_count * 100:.2f}%)"
     )
     print(
-        f"Discarded: {msg_discarded_count:_} ({msg_discarded_count / msg_requested_count * 100:.2f}%)"
+        f"  * Discarded: {msg_discarded_count:_} ({msg_discarded_count / msg_requested_count * 100:.2f}%)"
     )
 
 
